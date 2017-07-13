@@ -1,0 +1,27 @@
+<div fxLayout="column" fxFlex>
+  <md-toolbar color="primary">
+    <button md-icon-button>
+      <md-icon class="material-icons" style="padding: 4px;" (click)="sidenav.toggle()">menu</md-icon>
+    </button>
+    <span style="padding: 4px;">Where is it?</span>
+    <span fxFlex></span>
+  </md-toolbar>
+  <md-sidenav-container fxFlex>
+    <md-sidenav #sidenav mode="over" opened="false">
+      <p>this is the sidenav</p>
+    </md-sidenav>
+    <div class="content" fxFlex>
+      <div *ngFor="let location of locations">
+        <div *ngFor="let item of location['items']" style="padding: 3px">
+          <md-card>
+            <md-card-header>
+              <img md-card-avatar src="/assets/icons/favicon-32x32.png">
+              <md-card-title>{{item}}</md-card-title>
+              <md-card-subtitle>{{location['location']}}</md-card-subtitle>
+            </md-card-header>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </md-sidenav-container>
+</div>
